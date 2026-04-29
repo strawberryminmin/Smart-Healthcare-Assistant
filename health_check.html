@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health Check - Smart Healthcare Assistant</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="page-bg"></div>
+
+    <div class="container">
+
+       <nav class="navbar">
+            <a href="/" class="nav-brand">🩺 Healthcare Assistant</a>
+            <div class="nav-links">
+                <a href="/">Home</a>
+                <a href="/health-check" class="active">Health Check</a>
+                <a href="/about">About</a>
+                <a href="/faq">FAQ</a>
+                <a href="/tips">Health Tips</a>
+                <a href="/contact">Contact</a>
+            </div>
+        </nav>
+        <header class="page-header">
+            <h1>🩺 Health Check Form</h1>
+            <p>Enter your health information to get an AI-powered analysis</p>
+        </header>
+
+        <section class="card disclaimer">
+            <p><strong>Important:</strong> This system provides only basic health suggestions and does not replace a doctor or medical diagnosis.</p>
+        </section>
+
+        <section class="form-section card">
+            <h2>Patient Information</h2>
+            <form action="/process" method="POST" class="form-grid">
+                <div class="input-group">
+                    <label>Patient Name</label>
+                    <input type="text" name="name" placeholder="Enter patient name" required>
+                </div>
+
+                <div class="input-group">
+                    <label>Age</label>
+                    <input type="number" name="age" placeholder="Enter age" required>
+                </div>
+
+                <div class="input-group">
+                    <label>Gender</label>
+                    <select name="gender" required>
+                        <option value="">Select Gender</option>
+                        <option value="Female">Female</option>
+                        <option value="Male">Male</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label>Emergency Contact</label>
+                    <input type="text" name="emergency_contact" placeholder="Enter emergency contact" required>
+                </div>
+
+                <div class="input-group">
+                    <label>Temperature (°F)</label>
+                    <input type="number" step="0.1" name="temperature" placeholder="e.g. 101.4" required>
+                </div>
+
+                <div class="input-group">
+                    <label>Blood Pressure</label>
+                    <input type="text" name="blood_pressure" placeholder="e.g. 120/80" required>
+                </div>
+
+                <div class="input-group">
+                    <label>Pulse Rate (bpm)</label>
+                    <input type="number" name="pulse" placeholder="e.g. 82" required>
+                </div>
+
+                <div class="input-group">
+                    <label>Translate To</label>
+                    <select name="language" required>
+                        <option value="en">English</option>
+                        <option value="hi">Hindi</option>
+                        <option value="or">Odia</option>
+                        <option value="te">Telugu</option>
+                        <option value="mr">Marathi</option>
+                        <option value="ta">Tamil</option>
+                        <option value="fr">French</option>
+                        <option value="es">Spanish</option>
+                    </select>
+                </div>
+
+                <div class="input-group full-width">
+                    <label>Symptoms / Health Problem</label>
+                    <textarea id="text" name="text" placeholder="Example: I have fever and cough for 2 days" required></textarea>
+
+                    <div class="mic-row">
+                        <button type="button" class="mic-btn" onclick="startVoiceInput()">🎤 Start Speaking</button>
+                        <span id="mic-status">Click and speak</span>
+                    </div>
+                </div>
+
+                <div class="button-row full-width">
+                    <button type="submit">Process Health Data</button>
+                    <button type="reset" class="secondary-btn">Reset</button>
+                    <button type="button" class="print-btn" onclick="window.print()">📄 Download / Share Report</button>
+                </div>
+            </form>
+        </section>
+
+        <section class="chat-section card">
+           <h2>💬 AI First Aid Assistant</h2>
+           <p class="chat-note">Ask simple health questions for basic first-aid guidance.</p>
+
+               <div id="chat-box" class="chat-box">
+               <div class="bot-message">Hello! I can provide basic first-aid advice for common problems like fever, headache, cough, burns, cuts, or stomach pain.</div>
+                </div>
+
+              <div class="chat-input-row">
+             <input type="text" id="chat-input" placeholder="Type your symptom or first-aid question...">
+             <button type="button" onclick="sendMessage()">Send</button>
+             </div>
+        </section>
+
+        {% if original %}
+        {% if emergency == "Yes" %}
+        <section class="alert-banner">
+            🚨 Emergency symptoms detected. Please seek immediate medical help.
+        </section>
+        {% endif %}
+
+        <section class="results-grid">
+            <div class="card result-card">
+                <h2>👤 Patient Details</h2>
+                <p><strong>Name:</strong> {{ name }}</p>
+                <p><strong>Age:</strong> {{ age }}</p>
+                <p><strong>Gender:</strong> {{ gender }}</p>
+                <p><strong>Emergency Contact:</strong> {{ emergency_contact }}</p>
+            </div>
+
+            <div class="card result-card">
+                <h2>🩹 Vitals</h2>
+                <p><strong>Temperature:</strong> {{ temperature }} °F</p>
+                <p><strong>Blood Pressure:</strong> {{ blood_pressure }}</p>
+                <p><strong>Pulse Rate:</strong> {{ pulse }} bpm</p>
+            </div>
+
+            <div class="card result-card">
+                <h2>🌍 Patient-Friendly Output</h2>
+<p><strong>Your Input:</strong> {{ original }}</p>
+
+<h4>🗣️ Explanation in Selected Language</h4>
+<p>{{ translated }}</p>
+            </div>
+
+            <div class="card result-card">
+                <h2>🧠 Health Analysis</h2>
+                <p><strong>Detected Symptoms:</strong>
+                    {% if symptoms %}
+                        {{ symptoms | join(", ") }}
+                    {% else %}
+                        None
+                    {% endif %}
+                </p>
+                <p><strong>Duration:</strong> {{ duration }}</p>
+                <p><strong>Severity:</strong> {{ severity }}</p>
+                <p><strong>Emergency Alert:</strong>
+                    {% if emergency == "Yes" %}
+                        <span class="badge danger">Yes</span>
+                    {% else %}
+                        <span class="badge safe">No</span>
+                    {% endif %}
+                </p>
+                <p><strong>Risk Level:</strong>
+                    {% if risk_level == "High" %}
+                        <span class="badge danger">High</span>
+                    {% elif risk_level == "Medium" %}
+                        <span class="badge medium">Medium</span>
+                    {% else %}
+                        <span class="badge safe">Low</span>
+                    {% endif %}
+                </p>
+                <p><strong>Diagnosis Suggestion:</strong> {{ diagnosis }}</p>
+                <p><strong>Recommended Department:</strong> {{ department }}</p>
+                <p><strong>Precautions:</strong> {{ precautions }}</p>
+                <p><strong>AI Summary:</strong> {{ ai_summary }}</p>
+            </div>
+
+            <div class="card result-card">
+                <h2>🔊 Audio Output</h2>
+
+                <audio controls>
+                    <source src="{{ audio if audio else url_for('static', filename='output.mp3') }}" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+
+                <p style="color: gray;">(If audio doesn't play, check backend generation or file permissions.)</p>
+            </div>
+
+            <div class="card result-card full-report">
+                <h2>📄 Generated Patient Report</h2>
+                <pre>{{ report }}</pre>
+            </div>
+        </section>
+        {% endif %}
+
+        <footer class="footer">
+            <p>Smart Healthcare Assistant • College Project Demo</p>
+       
+        </footer>
+    </div>
+
+    <script>
+    function startVoiceInput() {
+        const status = document.getElementById("mic-status");
+        const textArea = document.getElementById("text");
+
+        if (!('webkitSpeechRecognition' in window) && !('SpeechRecognition' in window)) {
+            status.innerText = "Speech recognition is not supported in this browser.";
+            return;
+        }
+
+        const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+        const recognition = new SpeechRecognition();
+
+        recognition.lang = "en-US";
+        recognition.interimResults = false;
+        recognition.maxAlternatives = 1;
+
+        status.innerText = "Listening...";
+        recognition.start();
+
+        recognition.onresult = function(event) {
+            const transcript = event.results[0][0].transcript;
+            textArea.value = transcript;
+            status.innerText = "Voice input captured successfully.";
+        };
+
+        recognition.onerror = function(event) {
+            status.innerText = "Error: " + event.error;
+        };
+
+        recognition.onend = function() {
+            if (status.innerText === "Listening...") {
+                status.innerText = "Voice input stopped.";
+            }
+        };
+    }
+    </script>
+
+    <script>
+async function sendMessage() {
+    const input = document.getElementById("chat-input");
+    const chatBox = document.getElementById("chat-box");
+    const message = input.value.trim();
+
+    if (!message) return;
+
+    const userDiv = document.createElement("div");
+    userDiv.className = "user-message";
+    userDiv.innerText = message;
+    chatBox.appendChild(userDiv);
+
+    input.value = "";
+    chatBox.scrollTop = chatBox.scrollHeight;
+
+    const response = await fetch("/chat", {
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify({message: message})
+    });
+
+    const data = await response.json();
+    const botDiv = document.createElement("div");
+    botDiv.className = `bot-message ${data.type}`;
+    botDiv.innerText = data.reply;
+    chatBox.appendChild(botDiv);
+    chatBox.scrollTop = chatBox.scrollHeight;
+}
+
+document.getElementById("chat-input").addEventListener("keypress", function(e) {
+    if (e.key === "Enter") sendMessage();
+});
+    </script>
+</body>
+</html>

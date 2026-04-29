@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ - Smart Healthcare Voice Assistant</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="page-bg"></div>
+
+    <div class="container">
+        <nav class="navbar">
+            <a href="/" class="nav-brand">🩺 Healthcare Assistant</a>
+            <div class="nav-links">
+                <a href="/">Home</a>
+                <a href="/health-check">Health Check</a>
+                <a href="/about">About</a>
+                <a href="/faq" class="active">FAQ</a>
+                <a href="/tips">Health Tips</a>
+                <a href="/contact">Contact</a>
+            </div>
+        </nav>
+
+        <section class="card content-section">
+            <h1>Frequently Asked Questions</h1>
+            
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>📱 How do I use the voice input feature?</span>
+                        <span class="toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>
+                            Click the microphone button next to the symptom input field. Grant permission to access your microphone when prompted. 
+                            Speak clearly about your symptoms, and the system will transcribe your words. Once done, click the mic button again to stop recording.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>🌍 What languages are supported?</span>
+                        <span class="toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>
+                            Our assistant supports over 100 languages including Spanish, French, German, Chinese, Hindi, Arabic, Japanese, 
+                            Portuguese, and many more. You can select your preferred language before generating the report.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>🔒 Is my personal health information safe?</span>
+                        <span class="toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>
+                            Yes, your health information is treated with strict confidentiality. We follow HIPAA guidelines and industry-standard 
+                            encryption protocols to protect your data. Your information is not shared with third parties without your explicit consent.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>🩹 What should I do if the assistant says it's an emergency?</span>
+                        <span class="toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>
+                            If the system identifies an emergency situation (chest pain, difficulty breathing, severe bleeding, etc.), 
+                            DO NOT rely solely on this assistant. Call your local emergency number (911 in the US) or go to the nearest hospital immediately. 
+                            This assistant can only provide basic guidance and is not a substitute for emergency medical care.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>💊 Can I use this instead of visiting a doctor?</span>
+                        <span class="toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>
+                            No, this assistant is designed to provide basic first-aid guidance and initial symptom analysis only. 
+                            It does NOT replace professional medical diagnosis or treatment. Always consult a qualified healthcare professional 
+                            for persistent symptoms, medication prescriptions, or chronic conditions.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>📊 What vital signs should I record?</span>
+                        <span class="toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>
+                            If possible, record:
+                        </p>
+                        <ul>
+                            <li><strong>Temperature:</strong> In Fahrenheit or Celsius (use a thermometer)</li>
+                            <li><strong>Blood Pressure:</strong> Format (systolic/diastolic) like 120/80 mmHg</li>
+                            <li><strong>Pulse Rate:</strong> Number of beats per minute (feel your pulse or use a pulse oximeter)</li>
+                        </ul>
+                        <p>If you don't have equipment, leave these fields as estimated values.</p>
+                    </ul>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>🎤 Will the system understand my accent or speech patterns?</span>
+                        <span class="toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>
+                            Our voice recognition system is trained to understand various accents and speech patterns. 
+                            However, for best results, speak clearly and avoid background noise. If the system misunderstands, 
+                            you can always type your symptoms instead.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>📄 Can I print or save my health report?</span>
+                        <span class="toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>
+                            Yes! After generating a report, you can use your browser's print function (Ctrl+P or Cmd+P) to save it as a PDF 
+                            or print it. You can also download the report and share it with your doctor for reference.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>✅ What if I don't know exact measurements for vital signs?</span>
+                        <span class="toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>
+                            You can enter estimated values or use common reference points. For example, normal temperature is around 98.6°F (37°C), 
+                            normal blood pressure is around 120/80 mmHg, and normal pulse is 60-100 beats per minute. The system will account for variations.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>🔄 How often can I use the assistant?</span>
+                        <span class="toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>
+                            You can use the assistant as often as needed. There are no usage limits. However, if your symptoms persist or worsen, 
+                            please seek professional medical help instead of relying continuously on this system.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="footer">
+            <p>&copy; 2026 Smart Healthcare Voice Assistant. All rights reserved.</p>
+        </section>
+    </div>
+
+    <script>
+        document.querySelectorAll('.faq-question').forEach(item => {
+            item.addEventListener('click', function() {
+                this.classList.toggle('active');
+                this.nextElementSibling.classList.toggle('visible');
+                const toggle = this.querySelector('.toggle');
+                toggle.textContent = this.classList.contains('active') ? '−' : '+';
+            });
+        });
+    </script>
+
+    <style>
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(26, 47, 77, 0.6);
+            padding: 16px 24px;
+            border-radius: 12px;
+            margin-bottom: 24px;
+            border: 1px solid rgba(79, 172, 254, 0.15);
+        }
+
+        .nav-brand {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #64a5ff;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            color: #b8c5d6;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: #64a5ff;
+        }
+
+        .content-section {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .content-section h1 {
+            color: #64a5ff;
+            margin-bottom: 30px;
+            font-size: 2rem;
+        }
+
+        .faq-container {
+            display: grid;
+            gap: 14px;
+        }
+
+        .faq-item {
+            background: rgba(31, 122, 140, 0.1);
+            border: 1px solid rgba(79, 172, 254, 0.1);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px;
+            cursor: pointer;
+            user-select: none;
+            background: rgba(31, 122, 140, 0.15);
+            transition: background 0.3s ease;
+        }
+
+        .faq-question:hover {
+            background: rgba(31, 122, 140, 0.25);
+        }
+
+        .faq-question span:first-child {
+            color: #64a5ff;
+            font-weight: 600;
+            font-size: 1rem;
+        }
+
+        .toggle {
+            color: #4facfe;
+            font-size: 1.3rem;
+            font-weight: bold;
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .faq-answer.visible {
+            max-height: 500px;
+        }
+
+        .faq-answer p,
+        .faq-answer ul {
+            color: #b8c5d6;
+            line-height: 1.8;
+            padding: 16px 18px;
+        }
+
+        .faq-answer ul {
+            margin-left: 20px;
+        }
+
+        .faq-answer li {
+            margin-bottom: 8px;
+        }
+    </style>
+</body>
+</html>

@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health Tips - Smart Healthcare Voice Assistant</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="page-bg"></div>
+
+    <div class="container">
+        <nav class="navbar">
+            <a href="/" class="nav-brand">🩺 Healthcare Assistant</a>
+            <div class="nav-links">
+                <a href="/">Home</a>
+                <a href="/health-check">Health Check</a>
+                <a href="/about">About</a>
+                <a href="/faq">FAQ</a>
+                <a href="/tips" class="active">Health Tips</a>
+                <a href="/contact">Contact</a>
+            </div>
+        </nav>
+
+        <section class="card content-section">
+            <h1>Health Tips & Wellness Advice</h1>
+            <p class="intro-text">
+                Following these wellness tips can help you maintain good health and prevent common illnesses. 
+                Remember to consult with a healthcare professional for personalized advice.
+            </p>
+
+            <div class="tips-grid">
+                <div class="tip-card">
+                    <div class="tip-icon">💧</div>
+                    <h3>Stay Hydrated</h3>
+                    <p>
+                        Drink at least 8 glasses (2 liters) of water daily. Proper hydration helps maintain body temperature, 
+                        aids digestion, and improves energy levels. Drink more water if you exercise or live in a hot climate.
+                    </p>
+                </div>
+
+                <div class="tip-card">
+                    <div class="tip-icon">🏃</div>
+                    <h3>Exercise Regularly</h3>
+                    <p>
+                        Aim for at least 150 minutes of moderate physical activity per week. This can be walking, swimming, cycling, or sports. 
+                        Regular exercise strengthens your heart, improves mental health, and helps maintain a healthy weight.
+                    </p>
+                </div>
+
+                <div class="tip-card">
+                    <div class="tip-icon">🥗</div>
+                    <h3>Eat Balanced Meals</h3>
+                    <p>
+                        Include vegetables, fruits, whole grains, lean proteins, and healthy fats in your diet. Avoid excessive salt, sugar, 
+                        and processed foods. A balanced diet provides essential nutrients for your body.
+                    </p>
+                </div>
+
+                <div class="tip-card">
+                    <div class="tip-icon">😴</div>
+                    <h3>Get Quality Sleep</h3>
+                    <p>
+                        Aim for 7-9 hours of sleep every night. Maintain a consistent sleep schedule and create a relaxing bedtime routine. 
+                        Quality sleep boosts immunity, improves focus, and regulates mood.
+                    </p>
+                </div>
+
+                <div class="tip-card">
+                    <div class="tip-icon">🧘</div>
+                    <h3>Manage Stress</h3>
+                    <p>
+                        Practice meditation, yoga, or deep breathing exercises. Spend time in nature, listen to music, or engage in hobbies. 
+                        Managing stress reduces the risk of heart disease, depression, and other health issues.
+                    </p>
+                </div>
+
+                <div class="tip-card">
+                    <div class="tip-icon">⌚</div>
+                    <h3>Monitor Vital Signs</h3>
+                    <p>
+                        Keep track of your blood pressure, weight, and blood sugar levels regularly. This helps you identify potential health issues early. 
+                        Share this data with your doctor during check-ups.
+                    </p>
+                </div>
+
+                <div class="tip-card">
+                    <div class="tip-icon">🚭</div>
+                    <h3>Avoid Harmful Habits</h3>
+                    <p>
+                        Limit or quit smoking and excessive alcohol consumption. These habits increase the risk of cancer, heart disease, and liver damage. 
+                        Seek professional help if you're struggling with addiction.
+                    </p>
+                </div>
+
+                <div class="tip-card">
+                    <div class="tip-icon">🧼</div>
+                    <h3>Practice Hygiene</h3>
+                    <p>
+                        Wash your hands regularly, brush your teeth twice daily, and maintain personal hygiene. Good hygiene practices prevent infections 
+                        and reduce the spread of diseases to others.
+                    </p>
+                </div>
+
+                <div class="tip-card">
+                    <div class="tip-icon">💉</div>
+                    <h3>Stay Vaccinated</h3>
+                    <p>
+                        Keep your vaccinations up to date as recommended by health authorities. Vaccines protect you and others from serious diseases 
+                        like flu, measles, and COVID-19.
+                    </p>
+                </div>
+            </div>
+
+            <div class="tips-section card">
+                <h2>Common Health Rules to Follow</h2>
+                <div class="rules-grid">
+                    <div class="rule-item">
+                        <h4>🌡️ When to Check Temperature</h4>
+                        <ul>
+                            <li>When you feel sick or feverish</li>
+                            <li>Normal range: 97-99°F (36.1-37.2°C)</li>
+                            <li>Above 100.4°F (38°C) is considered fever</li>
+                            <li>Seek medical help if fever lasts >3 days</li>
+                        </ul>
+                    </div>
+
+                    <div class="rule-item">
+                        <h4>❤️ Blood Pressure Guidelines</h4>
+                        <ul>
+                            <li>Normal: Less than 120/80 mmHg</li>
+                            <li>Elevated: 120-129/<80 mmHg</li>
+                            <li>High (Stage 1): 130-139/80-89 mmHg</li>
+                            <li>High (Stage 2): 140/90 mmHg or higher</li>
+                            <li>Check regularly, especially if at risk</li>
+                        </ul>
+                    </div>
+
+                    <div class="rule-item">
+                        <h4>💓 Normal Pulse Rate</h4>
+                        <ul>
+                            <li>Adults: 60-100 beats per minute at rest</li>
+                            <li>Athletes may have 40-60 bpm</li>
+                            <li>Higher during fever or anxiety</li>
+                            <li>Lower during sleep</li>
+                            <li>Check your pulse in the morning for baseline</li>
+                        </ul>
+                    </div>
+
+                    <div class="rule-item">
+                        <h4>🍎 Healthy Weight Management</h4>
+                        <ul>
+                            <li>Maintain a BMI between 18.5-24.9</li>
+                            <li>Diet goals: Caloric deficit for weight loss</li>
+                            <li>Exercise: 150+ min moderate activity/week</li>
+                            <li>Avoid crash diets</li>
+                            <li>Target: 0.5-2 lbs weight loss per week</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tips-section card">
+                <h2>⚠️ When to Seek Medical Help</h2>
+                <div class="urgency-grid">
+                    <div class="urgent">
+                        <h3>🚨 Go to Emergency Room Immediately</h3>
+                        <ul>
+                            <li>Chest pain or pressure</li>
+                            <li>Difficulty breathing</li>
+                            <li>Severe allergic reactions</li>
+                            <li>Severe bleeding</li>
+                            <li>Loss of consciousness</li>
+                            <li>Poisoning or overdose</li>
+                            <li>Severe burns or injuries</li>
+                            <li>Signs of stroke (facial drooping, numbness, speech difficulty)</li>
+                        </ul>
+                    </div>
+
+                    <div class="moderate">
+                        <h3>🏥 Visit Doctor Within 24 Hours</h3>
+                        <ul>
+                            <li>Fever above 103°F (39.4°C)</li>
+                            <li>Severe headache with fever</li>
+                            <li>Persistent vomiting or diarrhea</li>
+                            <li>Severe abdominal pain</li>
+                            <li>Suspected broken bone</li>
+                            <li>Severe rash or skin reactions</li>
+                            <li>Vision changes</li>
+                            <li>Unexplained weight loss</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="footer">
+            <p>&copy; 2026 Smart Healthcare Voice Assistant. All rights reserved.</p>
+        </section>
+    </div>
+
+    <style>
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(26, 47, 77, 0.6);
+            padding: 16px 24px;
+            border-radius: 12px;
+            margin-bottom: 24px;
+            border: 1px solid rgba(79, 172, 254, 0.15);
+        }
+
+        .nav-brand {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #64a5ff;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            color: #b8c5d6;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: #64a5ff;
+        }
+
+        .content-section {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .content-section h1 {
+            color: #64a5ff;
+            margin-bottom: 12px;
+            font-size: 2rem;
+        }
+
+        .intro-text {
+            color: #b8c5d6;
+            margin-bottom: 30px;
+            font-size: 1.05rem;
+            line-height: 1.6;
+        }
+
+        .tips-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 18px;
+            margin-bottom: 28px;
+        }
+
+        .tip-card {
+            background: rgba(31, 122, 140, 0.1);
+            border: 1px solid rgba(79, 172, 254, 0.1);
+            padding: 24px;
+            border-radius: 14px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .tip-card:hover {
+            transform: translateY(-4px);
+        }
+
+        .tip-icon {
+            font-size: 2.5rem;
+            margin-bottom: 12px;
+        }
+
+        .tip-card h3 {
+            color: #64a5ff;
+            margin-bottom: 12px;
+        }
+
+        .tip-card p {
+            color: #b8c5d6;
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+
+        .tips-section {
+            margin-bottom: 24px;
+        }
+
+        .tips-section h2 {
+            color: #64a5ff;
+            margin-bottom: 20px;
+        }
+
+        .rules-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 18px;
+        }
+
+        .rule-item {
+            background: rgba(31, 122, 140, 0.15);
+            padding: 18px;
+            border-radius: 12px;
+            border: 1px solid rgba(79, 172, 254, 0.1);
+        }
+
+        .rule-item h4 {
+            color: #64a5ff;
+            margin-bottom: 12px;
+        }
+
+        .rule-item ul {
+            list-style-position: inside;
+            color: #b8c5d6;
+        }
+
+        .rule-item li {
+            margin-bottom: 8px;
+            line-height: 1.5;
+        }
+
+        .urgency-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .urgent {
+            background: rgba(229, 57, 53, 0.1);
+            border: 1px solid rgba(243, 39, 20, 0.2);
+            padding: 20px;
+            border-radius: 12px;
+        }
+
+        .urgent h3 {
+            color: #ff7675;
+            margin-bottom: 14px;
+        }
+
+        .urgent ul {
+            list-style-position: inside;
+            color: #ffc5c5;
+        }
+
+        .moderate {
+            background: rgba(255, 193, 7, 0.1);
+            border: 1px solid rgba(255, 193, 7, 0.2);
+            padding: 20px;
+            border-radius: 12px;
+        }
+
+        .moderate h3 {
+            color: #ffb74d;
+            margin-bottom: 14px;
+        }
+
+        .moderate ul {
+            list-style-position: inside;
+            color: #ffe082;
+        }
+
+        .urgent li,
+        .moderate li {
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
+    </style>
+</body>
+</html>

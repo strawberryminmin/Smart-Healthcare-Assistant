@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Healthcare Assistant</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="page-bg"></div>
+
+    <div class="container">
+
+        <nav class="navbar">
+            <a href="/" class="nav-brand">🩺 Healthcare Assistant</a>
+            <div class="nav-links">
+                <a href="/" class="active">Home</a>
+                <a href="/health-check">Health Check</a>
+                <a href="/about">About</a>
+                <a href="/faq">FAQ</a>
+                <a href="/tips">Health Tips</a>
+                <a href="/contact">Contact</a>
+            </div>
+        </nav>
+
+        <header class="hero">
+            <div class="hero-text">
+                <p class="tag">AI-Powered Healthcare Support</p>
+                <h1>🩺 Smart Healthcare Assistant</h1>
+                <p class="hero-sub">
+                    A user-friendly healthcare support system for symptom analysis,
+                    translation, voice output, risk assessment, and report generation.
+                </p>
+                <div class="cta-button">
+                    <a href="/health-check" class="btn-primary">Start Health Check</a>
+                </div>
+            </div>
+
+            <div class="hero-image">
+                <div class="image-card">
+                    <div class="circle big"></div>
+                    <div class="circle small"></div>
+                    <div class="medical-icon">💙</div>
+                </div>
+            </div>
+        </header>
+
+        <section class="card disclaimer">
+            <p><strong>Important:</strong> This system provides only basic health suggestions and does not replace a doctor or medical diagnosis.</p>
+        </section>
+
+        <section class="features">
+            <div class="card feature-card">
+                <h3>🎤 Voice Input</h3>
+                <p>Capture symptoms using microphone input for quick and easy interaction.</p>
+            </div>
+            <div class="card feature-card">
+                <h3>🌍 Translation</h3>
+                <p>Translate symptoms into different languages for better communication.</p>
+            </div>
+            <div class="card feature-card">
+                <h3>📄 Smart Report</h3>
+                <p>Generate a patient-friendly health summary with risk and precautions.</p>
+            </div>
+            <div class="card feature-card">
+                <h3>🩹 AI Analysis</h3>
+                <p>Get AI-powered health analysis and personalized recommendations.</p>
+            </div>
+            <div class="card feature-card">
+                <h3>💬 First Aid Chat</h3>
+                <p>Chat with our AI for basic first-aid guidance and health tips.</p>
+            </div>
+            <div class="card feature-card">
+                <h3>🚨 Emergency Alert</h3>
+                <p>Instant detection of emergency symptoms with immediate alerts.</p>
+            </div>
+        </section>
+
+        <section class="how-it-works card">
+            <h2>How It Works</h2>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-icon">1</div>
+                    <h4>Enter Patient Info</h4>
+                    <p>Provide your basic health information and vitals.</p>
+                </div>
+                <div class="step">
+                    <div class="step-icon">2</div>
+                    <h4>Describe Symptoms</h4>
+                    <p>Type or speak your symptoms clearly.</p>
+                </div>
+                <div class="step">
+                    <div class="step-icon">3</div>
+                    <h4>Get Analysis</h4>
+                    <p>Receive instant AI analysis, diagnosis suggestions, and risk assessment.</p>
+                </div>
+                <div class="step">
+                    <div class="step-icon">4</div>
+                    <h4>Translation & Report</h4>
+                    <p>Get translated output, audio, and a comprehensive health report.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-section card">
+            <h2>Ready to Check Your Health?</h2>
+            <p>Get started with a comprehensive health analysis in minutes.</p>
+            <a href="/health-check" class="btn-primary">Go to Health Check</a>
+        </section>
+        <section class="card" style="text-align:center; margin-top:30px;">
+            <h2>🎤 Talk to Healthcare Assistant</h2>
+            <p>Click below and describe your symptoms by voice</p>
+
+             <button onclick="startVoice()" class="btn-primary">🎤 Start Talking</button>
+
+            <p id="userText" style="margin-top:15px;"></p>
+            <p id="botReply" style="margin-top:10px; color:#64a5ff;"></p>
+      </section>
+
+        <footer class="footer">
+            <p>Smart Healthcare Assistant • College Project Demo</p>
+        </footer>
+    </div>
+
+    <style>
+        .btn-primary {
+            display: inline-block;
+            background: linear-gradient(135deg, #64a5ff, #4facfe);
+            color: white;
+            padding: 12px 32px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: transform 0.3s, box-shadow 0.3s;
+            margin-top: 16px;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(100, 165, 255, 0.4);
+        }
+
+        .cta-button {
+            margin-top: 20px;
+        }
+
+        .cta-section {
+            text-align: center;
+            padding: 48px 32px;
+            background: linear-gradient(135deg, rgba(79, 172, 254, 0.15), rgba(100, 165, 255, 0.1));
+            margin-top: 40px;
+        }
+
+        .cta-section h2 {
+            color: #64a5ff;
+            margin-bottom: 12px;
+        }
+
+        .cta-section p {
+            color: #b8c5d6;
+            margin-bottom: 24px;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(26, 47, 77, 0.6);
+            padding: 16px 24px;
+            border-radius: 12px;
+            margin-bottom: 24px;
+            border: 1px solid rgba(79, 172, 254, 0.15);
+        }
+
+        .nav-brand {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #64a5ff;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            color: #b8c5d6;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: #64a5ff;
+        }
+    </style>
+    <script>
+function startVoice() {
+    const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+    recognition.start();
+
+    document.getElementById("botReply").innerText = "Listening...";
+
+    recognition.onresult = function(event) {
+        let text = event.results[0][0].transcript;
+        document.getElementById("userText").innerText = "You: " + text;
+
+        fetch("/chat", {
+            method: "POST",
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify({message: text})
+        })
+        .then(res => res.json())
+        .then(data => {
+            document.getElementById("botReply").innerText = "Assistant: " + data.reply;
+
+            // 🔊 Play voice
+            if (data.audio) {
+                let audio = new Audio(data.audio);
+                audio.play();
+            } else {
+                let speech = new SpeechSynthesisUtterance(data.reply);
+                window.speechSynthesis.speak(speech);
+            }
+        });
+    };
+}
+</script>
+</body>
+</html>

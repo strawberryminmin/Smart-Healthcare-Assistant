@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Smart Healthcare Voice Assistant</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="page-bg"></div>
+
+    <div class="container">
+        <nav class="navbar">
+            <a href="/" class="nav-brand">🩺 Healthcare Assistant</a>
+            <div class="nav-links">
+                <a href="/">Home</a>
+                <a href="/health-check">Health Check</a>
+                <a href="/about" class="active">About</a>
+                <a href="/faq">FAQ</a>
+                <a href="/tips">Health Tips</a>
+                <a href="/contact">Contact</a>
+            </div>
+        </nav>
+
+        <section class="card content-section">
+            <h1>About Our Healthcare Assistant</h1>
+            
+            <div class="about-content">
+                <div class="about-item">
+                    <h2>🎯 Our Mission</h2>
+                    <p>
+                        We aim to provide accessible, user-friendly healthcare support to everyone. Our Smart Healthcare Voice Assistant 
+                        is designed to help users understand their symptoms, receive initial health guidance, and know when to seek professional medical help.
+                    </p>
+                </div>
+
+                <div class="about-item">
+                    <h2>✨ Key Features</h2>
+                    <ul>
+                        <li><strong>Voice Input:</strong> Easily describe symptoms using your microphone for quick interaction</li>
+                        <li><strong>Multi-language Support:</strong> Communicate in your preferred language with instant translation</li>
+                        <li><strong>Smart Analysis:</strong> AI-powered symptom detection and risk assessment</li>
+                        <li><strong>Audio Output:</strong> Listen to health guidance through text-to-speech technology</li>
+                        <li><strong>Comprehensive Reports:</strong> Get detailed health summaries with precautions and recommendations</li>
+                        <li><strong>Patient Records:</strong> Store and manage patient information securely</li>
+                    </ul>
+                </div>
+
+                <div class="about-item">
+                    <h2>🔬 How It Works</h2>
+                    <ol>
+                        <li>Enter your personal information (name, age, gender, emergency contact)</li>
+                        <li>Describe your symptoms using text or voice input</li>
+                        <li>Select your preferred language for translation</li>
+                        <li>Provide vital signs (temperature, blood pressure, pulse rate) if available</li>
+                        <li>Receive instant analysis with risk assessment</li>
+                        <li>Get a translated audio response and comprehensive health report</li>
+                        <li>Follow recommendations and seek professional help if needed</li>
+                    </ol>
+                </div>
+
+                <div class="about-item warning-box">
+                    <h2>⚠️ Important Disclaimer</h2>
+                    <p>
+                        This system provides only basic health suggestions and does <strong>NOT</strong> replace a doctor or medical diagnosis. 
+                        Always consult with a qualified healthcare professional for:
+                    </p>
+                    <ul>
+                        <li>Persistent or severe symptoms</li>
+                        <li>Emergency situations requiring immediate medical attention</li>
+                        <li>Prescription medications and treatments</li>
+                        <li>Chronic disease management</li>
+                        <li>Surgical procedures or hospitalization</li>
+                    </ul>
+                </div>
+
+                <div class="about-item">
+                    <h2>🛡️ Privacy & Security</h2>
+                    <p>
+                        Your health information is important to us. We follow strict data protection guidelines:
+                    </p>
+                    <ul>
+                        <li>All patient data is handled with confidentiality</li>
+                        <li>Data is not shared with third parties without consent</li>
+                        <li>Information is encrypted and stored securely</li>
+                        <li>You have the right to access and delete your records</li>
+                    </ul>
+                </div>
+
+                <div class="about-item">
+                    <h2>👥 Who Should Use This?</h2>
+                    <p>
+                        This assistant is beneficial for:
+                    </p>
+                    <ul>
+                        <li>People seeking initial symptom analysis</li>
+                        <li>Those needing guidance on basic first aid</li>
+                        <li>Patients wanting to understand their health better</li>
+                        <li>Healthcare workers documenting patient information</li>
+                        <li>Multi-lingual users needing translation support</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="footer">
+            <p>&copy; 2026 Smart Healthcare Voice Assistant. All rights reserved.</p>
+        </section>
+    </div>
+
+    <style>
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(26, 47, 77, 0.6);
+            padding: 16px 24px;
+            border-radius: 12px;
+            margin-bottom: 24px;
+            border: 1px solid rgba(79, 172, 254, 0.15);
+        }
+
+        .nav-brand {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #64a5ff;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            color: #b8c5d6;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: #64a5ff;
+        }
+
+        .content-section {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .content-section h1 {
+            color: #64a5ff;
+            margin-bottom: 30px;
+            font-size: 2rem;
+        }
+
+        .about-content {
+            display: grid;
+            gap: 28px;
+        }
+
+        .about-item {
+            background: rgba(31, 122, 140, 0.1);
+            padding: 24px;
+            border-radius: 16px;
+            border: 1px solid rgba(79, 172, 254, 0.1);
+        }
+
+        .about-item h2 {
+            color: #64a5ff;
+            margin-bottom: 14px;
+            font-size: 1.4rem;
+        }
+
+        .about-item p {
+            color: #b8c5d6;
+            line-height: 1.8;
+            margin-bottom: 12px;
+        }
+
+        .about-item ul,
+        .about-item ol {
+            color: #b8c5d6;
+            line-height: 1.8;
+            margin-left: 20px;
+        }
+
+        .about-item li {
+            margin-bottom: 10px;
+        }
+
+        .warning-box {
+            background: rgba(243, 156, 18, 0.1);
+            border: 1px solid rgba(243, 156, 18, 0.3);
+        }
+
+        .warning-box h2 {
+            color: #f39c12;
+        }
+
+        .warning-box p {
+            color: #ffd699;
+        }
+
+        .warning-box ul {
+            color: #ffd699;
+        }
+    </style>
+</body>
+</html>
